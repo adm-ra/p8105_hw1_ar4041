@@ -14,7 +14,7 @@ library(tidyverse)
 
 Create a data frame with the specified elements.
 
-```{r}
+```{r variable_tibble}
 prob1_df = 
   tibble(
     samp = rnorm(10),
@@ -26,7 +26,7 @@ prob1_df =
 
 Take the mean of each variable in my data frame. 
 
-```{r}
+```{r mean_pull}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0))
 mean(pull(prob1_df, char_vec))
@@ -34,5 +34,9 @@ mean(pull(prob1_df, factor_vec))
 ```
 
 I can take the mean of numbers, but not characters or factors. 
+
+```{r try_numeric}
+as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+```
 
 ## Problem 2
