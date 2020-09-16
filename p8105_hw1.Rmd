@@ -36,7 +36,17 @@ mean(pull(prob1_df, factor_vec))
 I can take the mean of numbers, but not characters or factors. 
 
 ```{r try_numeric}
+as.numeric(pull(prob1_df, samp_gt_0)) 
+as.numeric(pull(prob1_df, char_vec)) 
+as.numeric(pull(prob1_df, factor_vec)) 
+```
+
+When converted to numeric, the logical vector produces a 1 for numbers over 0, and a 0 for numbers below 0. The character vector produces "NA"s, as it says the argument is not logical or numeric. The factor vector converts each level into a number. This may be because R can interpret variables in a factor vector as levels (some experimentation shows that R will assign these levels alphabetically) and display corresponding levels numerically, but not character variables. Logical answers can be displayed as 1s or 0s, depending on if they have fulfilled the condition. 
+
+```{r convert_multiply}
 as.numeric(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_gt_0)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 ```
 
 ## Problem 2
