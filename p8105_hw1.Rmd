@@ -56,3 +56,17 @@ Inline R code and plotting
 ```{r penguin_package}
 data("penguins", package = "palmerpenguins")
 ```
+
+```{r penguin_describe}
+summary(penguins)
+ncol(penguins)
+nrow(penguins)
+mean(pull(penguins, flipper_length_mm))
+```
+
+```{r penguin_scatter}
+ggplot(penguins, 
+       aes(x = bill_length_mm, y = flipper_length_mm,
+           color = species)) + geom_point() 
+ggsave("hw1_scatterplot.pdf", height = 5, width = 5)
+```
