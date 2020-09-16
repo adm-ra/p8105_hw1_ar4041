@@ -61,7 +61,7 @@ data("penguins", package = "palmerpenguins")
 summary(penguins)
 ncol(penguins)
 nrow(penguins)
-mean(pull(penguins, flipper_length_mm))
+mean(pull(penguins, flipper_length_mm),na.rm = TRUE)
 ```
 
 ```{r penguin_scatter}
