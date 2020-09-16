@@ -6,7 +6,7 @@ output: github_document
 
 This is my solution to HW1
 
-```{r}
+```{r tidyverse}
 library(tidyverse)
 ```
 
@@ -50,3 +50,9 @@ as.numeric(as.factor(pull(prob1_df, samp_gt_0))) * pull(prob1_df, samp)
 ```
 
 ## Problem 2
+
+Inline R code and plotting
+
+```{r penguin_package}
+data("penguins", package = "palmerpenguins")
+```
