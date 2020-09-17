@@ -64,9 +64,11 @@ nrow(penguins)
 mean(pull(penguins, flipper_length_mm),na.rm = TRUE)
 ```
 
-The variable names in this dataset are `r names(penguins)`. 
+The variables in this dataset are `r names(penguins)`. 
 The species of penguins in this dataset are `r levels(pull(penguins, species))`.
 The islands in this dataset are `r levels(pull(penguins, island))`.
+The study period of this dataset is from `r min((pull(penguins, year))), na.rm = FALSE)` to `r max((pull(penguins, year)), na.rm = FALSE)`. 
+In this dataset, there were `r count(pull(penguins, sex, female))`
 This dataset contains `r ncol(penguins)` columns and `r nrow(penguins)` rows. 
 The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`. 
 
