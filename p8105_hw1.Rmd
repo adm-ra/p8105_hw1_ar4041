@@ -64,6 +64,13 @@ nrow(penguins)
 mean(pull(penguins, flipper_length_mm),na.rm = TRUE)
 ```
 
+The variable names in this dataset are `r names(penguins)`. 
+The species of penguins in this dataset are `r levels(pull(penguins, species))`.
+The islands in this dataset are `r levels(pull(penguins, island))`.
+This dataset contains `r ncol(penguins)` columns and `r nrow(penguins)` rows. 
+The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`. 
+
+
 ```{r penguin_scatter}
 ggplot(penguins, 
        aes(x = bill_length_mm, y = flipper_length_mm,
