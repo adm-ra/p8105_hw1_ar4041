@@ -59,23 +59,25 @@ data("penguins", package = "palmerpenguins")
 
 ```{r penguin_describe}
 summary(penguins)
-ncol(penguins)
-nrow(penguins)
-mean(pull(penguins, flipper_length_mm),na.rm = TRUE)
 ```
 
 The variables in this dataset are `r names(penguins)`. 
 The species of penguins in this dataset are `r levels(pull(penguins, species))`.
 The islands in this dataset are `r levels(pull(penguins, island))`.
-The study period of this dataset is from `r min((pull(penguins, year))), na.rm = FALSE)` to `r max((pull(penguins, year)), na.rm = FALSE)`. 
-In this dataset, there were `r add_count(pull(penguins, sex))`
+The observations in the study period of this dataset is from `r min((pull(penguins, year)), na.rm = FALSE)` to `r max((pull(penguins, year)), na.rm = FALSE)`. 
+Minimum bill length was `r min((pull(penguins, bill_length_mm)), na.rm = TRUE)` mm.
+Maximum bill length was `r max((pull(penguins, bill_length_mm)), na.rm = TRUE)` mm.
+Minimum bill depth was `r min((pull(penguins, bill_depth_mm)), na.rm = TRUE)` mm.
+Maximum bill depth was `r max((pull(penguins, bill_depth_mm)), na.rm = TRUE)` mm.
+Minimum body mass was `r min((pull(penguins, body_mass_g)), na.rm = TRUE)` grams.
+Maximum body mass was `r max((pull(penguins, body_mass_g)), na.rm = TRUE)` grams.
 This dataset contains `r ncol(penguins)` columns and `r nrow(penguins)` rows. 
-The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`. 
-
+The mean flipper length was `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`. 
 
 ```{r penguin_scatter}
 ggplot(penguins, 
        aes(x = bill_length_mm, y = flipper_length_mm,
            color = species)) + geom_point() 
+
 ggsave("hw1_scatterplot.pdf", height = 5, width = 5)
 ```
